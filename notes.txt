@@ -1,0 +1,52 @@
+Classes 
+
+Gladiators():
+--------------------------------------------------------------------------------------
+Gladiators Have stats that will be taken into account when
+simulating combat
+---------------------------------------------------------------------------------------
+Base stats:
+    Health,
+    Strength,
+    Defense,
+    
+Stat Bonuses & Penalties:
+    Injuries
+        Health --  HP
+        Strength -- STR
+        Defense -- DEF
+
+    Boons
+        Health ++ HP
+        Strength ++ STR
+        Defense ++ DEF
+        
+Totals stats = Base Stats + / - Bonuses & Penalties
+--------------------------------------------------------------------------------------
+Gladiators have names and ids randomly assigned from a list.
+--------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------
+The game is simulated in a 1v1 single elimination bracket style tournament.
+
+Each round simulates combat between two Gladiators each created with randomized
+stats. A Gladiator wins combat by lowering the opponents health below Zero.
+
+Combat is simulated in rounds with an attacker and a defender.
+
+Damage is calculated by multiplying the total Strength stat of the attacking gladiator 
+by a randomly generated force multiplier that ranges from 0 - 20 with 20 being a 
+20x multiplier and zero resulting in a miss. 
+
+On the defending side Defense is calculated by multiplying the total defense stat
+by a randomly generated multiplier between 0 - 20.
+
+The amount of health lost by the defending Gladiator is the total of the 
+damage stat - the total defense calculated.
+
+--------------------------------------------------------------------------------------
+After a round is simulated Penalties and Bonuses are awarded to the victor based
+on their remaining health. ++ bonuses if the victor is above 50% health, or 
+Penalties -- if the victor is below 50% health. In either case the winners base 
+health stat is restored to 100% capacity after each round. 
+--------------------------------------------------------------------------------------
