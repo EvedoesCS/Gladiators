@@ -49,20 +49,28 @@ def fightTurn(gladiatorA: gladiator, gladiatorB: gladiator):
         return
 
 # Function defines a single match consisting of "turns" between gladiators
-def simulateRound(gladiatorA: gladiator, gladiatorB: gladiator):
+def simulateMatch(gladiatorA: gladiator, gladiatorB: gladiator):
     # While neither combatant is dead ...aka health > 0
     winner = None
     while True:
         returnVal = fightTurn(gladiatorA, gladiatorB)
         if returnVal == "A":
-            winner = gladiatorA.name
+            winner = gladiatorA
             break
         elif returnVal == "B":
-            winner = gladiatorB.name
+            winner = gladiatorB
             break
         
     return winner
             
-print(simulateRound(combatants[0], combatants[1]))
-        
+# Function defines a full round of matches. Function returns an array of 
+# "Victor" gladiator objects 
+def simulateRound():
+    victors = []
+
+    # Appends the victors list by simulating matches in groups of two
+    for i in range(0, len(combatants), 2):
+        victors.append(simulateMatch(combatants[i], combatants[i + 1]))
+
+    return victors
 
