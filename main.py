@@ -61,16 +61,25 @@ def simulateMatch(gladiatorA: gladiator, gladiatorB: gladiator):
             winner = gladiatorB
             break
         
+    winner.health = 100
     return winner
             
 # Function defines a full round of matches. Function returns an array of 
 # "Victor" gladiator objects 
-def simulateRound():
+def simulateRound(combatants: list):
     victors = []
 
     # Appends the victors list by simulating matches in groups of two
-    for i in range(0, len(combatants), 2):
+    for i in range(0, (len(combatants) - 1), 2):
         victors.append(simulateMatch(combatants[i], combatants[i + 1]))
 
     return victors
+
+# Function defines the entire tournament. simulateTournament() re-calls the
+# simulateRound() function until a victor is determined.
+def simulateTournament(combatants: list):
+    while len(combatants) > 1:
+        combatants = simulateRound(combatants)
+
+    return combatants[0].name
 
