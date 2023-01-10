@@ -83,3 +83,4 @@ def simulateTournament(combatants: list):
 
     return combatants[0].name
 
+print(simulateTournament(combatants))
